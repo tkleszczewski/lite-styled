@@ -1,0 +1,17 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.sideDrawer {
+  position: absolute;
+  min-width: 500px;
+  height: 100vh;
+  top: 0px;
+  right: 0px;
+  background-color: #fff;
+}

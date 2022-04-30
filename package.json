@@ -1,0 +1,26 @@
+{
+  "name": "liteStyled",
+  "version": "0.0.1",
+  "description": "A little styled customizable by CSS/SASS modules or global CSS React component library",
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "sites/*"
+    ]
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "liteStyled",
+    "component-library",
+    "a11y",
+    "accessibility",
+    "React",
+    "component",
+    "library"
+  ],
+  "author": "tkle <tomekkleszczewski@gmail.com>",
+  "license": "MIT"
+}

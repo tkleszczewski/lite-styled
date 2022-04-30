@@ -1,0 +1,28 @@
+{
+  "name": "lite-styled",
+  "private": false,
+  "version": "0.0.5",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\""
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "clsx": "^1.1.1"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/liteStyled.umd.js",
+  "module": "./dist/liteStyled.es.js",
+  "types": "./dist/lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/liteStyled.es.js",
+      "require": "./dist/liteStyled.umd.js"
+    }
+  }
+}
