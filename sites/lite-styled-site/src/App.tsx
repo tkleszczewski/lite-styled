@@ -1,4 +1,4 @@
-import "../../../node_modules/lite-styled/dist/style.css";
+import "lite-styled/dist/style.css";
 
 import React, { useCallback, useState } from "react";
 import { Route, Routes } from "react-router-dom";
