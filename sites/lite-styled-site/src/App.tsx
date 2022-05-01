@@ -126,6 +126,31 @@ const dialog = {
   ],
 };
 
+const sideDrawer = {
+  componentTitle: "SideDrawer",
+  componentTag: `<SideDrawer isOpen={isDialogOpen} onClose={handleCloseDialog}> SideDrawer Content </SideDrawer>`,
+  componentProps: [
+    "isOpen: boolean",
+    "onClose: () => void",
+    `sideDrawerPosition?: "left" | "right"`,
+    `shouldBackdropClickClose?: boolean`,
+    `onBackdropClick?: () => void`,
+    `backdropClassNames?: string`,
+    `sideDrawerClassNames?: string`,
+    `children?: JSX.Element`,
+  ],
+  stackBlitzLinks: [
+    {
+      description: "basic",
+      url: "https://stackblitz.com/edit/react-ts-isrpct?file=App.tsx",
+    },
+    {
+      description: "advanced",
+      url: "https://stackblitz.com/edit/react-ts-fggxxp?file=App.tsx",
+    },
+  ],
+};
+
 function App() {
   const colorThemeFromLS = localStorage.getItem("color-theme");
   const [colorTheme, setColorTheme] = useState<string>(
@@ -195,6 +220,17 @@ function App() {
                         componentTag={dialog.componentTag}
                         componentProps={dialog.componentProps}
                         stackBlitzLinks={dialog.stackBlitzLinks}
+                      />
+                    }
+                  />
+                  <Route
+                    path="side-drawer"
+                    element={
+                      <ComponentContainer
+                        componentTitle={sideDrawer.componentTitle}
+                        componentTag={sideDrawer.componentTag}
+                        componentProps={sideDrawer.componentProps}
+                        stackBlitzLinks={sideDrawer.stackBlitzLinks}
                       />
                     }
                   />
