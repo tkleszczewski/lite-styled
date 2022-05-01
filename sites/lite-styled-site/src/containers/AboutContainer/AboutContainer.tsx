@@ -4,7 +4,7 @@ import styles from "./AboutContainer.module.scss";
 const AboutContainer = () => {
   return (
     <div>
-      <h3 className={detailContainerStyles.detailHeading}>About</h3>;
+      <h3 className={detailContainerStyles.detailHeading}>About</h3>
       <p className={detailContainerStyles.paragraph}>
         The goal of lite-styled is to provide React component library easy to
         style through:
@@ -25,7 +25,8 @@ const AboutContainer = () => {
         JS and TS
       </p>
       <p className={detailContainerStyles.paragraph}>
-        Components are developed with a11y guidelines provided by W3C ARiA
+        Components are desired to be developed with a11y guidelines provided by
+        W3C ARiA, Currently this feature is WIP
       </p>
       <p className={detailContainerStyles.paragraph}>
         Styling of the components is restricted to the minimum, but each part of

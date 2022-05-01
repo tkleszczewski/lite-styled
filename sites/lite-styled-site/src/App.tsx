@@ -127,11 +127,11 @@ const dialog = {
 
 const sideDrawer = {
   componentTitle: "SideDrawer",
-  componentTag: `<SideDrawer isOpen={isDialogOpen} onClose={handleCloseDialog}> SideDrawer Content </SideDrawer>`,
+  componentTag: `<SideDrawer isOpen={isDrawerOpen} onClose={handleCloseDrawer}> SideDrawer Content </SideDrawer>`,
   componentProps: [
     "isOpen: boolean",
     "onClose: () => void",
-    `sideDrawerPosition?: "left" | "right" ="right"`,
+    `sideDrawerPosition?: "left" | "right" = "right"`,
     `shouldBackdropClickClose?: boolean = true`,
     `onBackdropClick?: () => void = () => {}`,
     `backdropClassNames?: string = ""`,
