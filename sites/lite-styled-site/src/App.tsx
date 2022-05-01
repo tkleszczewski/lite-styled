@@ -1,50 +1,215 @@
-import { useCallback, useState } from "react";
+import "../../../node_modules/lite-styled/dist/style.css";
 
-import "../node_modules/lite-styled/dist/style.css";
+import React, { useCallback, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 
-import { Dialog, SideDrawer } from "lite-styled";
+import NavItemGroup from "./components/NavItemGroup/NavItemGroup";
+
+import ContentContainer from "./containers/ContentContainer/ContentContainer";
+
+import SectionContainer from "./containers/SectionContainer/SectionContainer";
+
+import AboutContainer from "./containers/AboutContainer/AboutContainer";
+
+import styles from "./App.module.scss";
+import InstallationContainer from "./containers/InstallationContainer/InstallationContainer";
+import ComponentContainer from "./containers/ComponentContainer/ComponentContainer";
+import UsageContainer from "./containers/UsageContainer/UsageContainer";
+
+const conceptNavItemOptions = {
+  groupName: "concept",
+  navItems: [
+    {
+      name: "about",
+      path: "/concept/about",
+    },
+    // {
+    //   name: "useful links",
+    //   path: "/concept/useful-links",
+    // },
+  ],
+};
+
+const gettingStartedNavItemOptions = {
+  groupName: "getting started",
+  navItems: [
+    {
+      name: "installation",
+      path: "/getting-started/installation",
+    },
+    {
+      name: "usage",
+      path: "getting-started/usage",
+    },
+  ],
+};
+
+const componentsdNavItemOptions = {
+  groupName: "components",
+  navItems: [
+    {
+      name: "dialog (modal)",
+      path: "components/dialog",
+    },
+    {
+      name: "side-drawer",
+      path: "components/side-drawer",
+    },
+    {
+      name: "switch (WIP)",
+      path: "components/switch",
+    },
+    {
+      name: "select (WIP)",
+      path: "components/select",
+    },
+    {
+      name: "accordion (WIP)",
+      path: "components/accordion",
+    },
+    {
+      name: "button (WIP)",
+      path: "components/button",
+    },
+    {
+      name: "input (WIP)",
+      path: "components/input",
+    },
+    {
+      name: "tabs (WIP)",
+      path: "components/tabs",
+    },
+    {
+      name: "tooltip (WIP)",
+      path: "components/tooltip",
+    },
+    {
+      name: "menu-button (WIP)",
+      path: "components/menu-button",
+    },
+    {
+      name: "checkbox (WIP)",
+      path: "components/checkbox",
+    },
+    {
+      name: "combobox (WIP)",
+      path: "components/combobox",
+    },
+  ],
+};
+
+const navGroups = [
+  conceptNavItemOptions,
+  gettingStartedNavItemOptions,
+  componentsdNavItemOptions,
+];
+
+const dialog = {
+  componentTitle: "Dialog",
+  componentTag: `<Dialog isOpen={isDialogOpen} onClose={handleCloseDialog}> Dialog Content </Dialog>`,
+  componentProps: [
+    "isOpen: boolean",
+    "onClose: () => void",
+    "onBackdropClick?: () => void",
+    "shouldBackdropClickClose?: boolean",
+    "backdropClassNames?: string",
+    "dialogClassNames?: string",
+    "children?: JSX.Element",
+  ],
+  stackBlitzLinks: [
+    {
+      description: "basic",
+      url: "https://stackblitz.com/edit/react-ts-xueaxf?file=App.tsx",
+    },
+    {
+      description: "advanced",
+      url: "https://stackblitz.com/edit/react-ts-bfdamw?file=App.tsx",
+    },
+  ],
+};
 
 function App() {
-  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
-  const [isSideDrawerOpen, setIsSideDrawerOpen] = useState<boolean>(false);
+  const colorThemeFromLS = localStorage.getItem("color-theme");
+  const [colorTheme, setColorTheme] = useState<string>(
+    colorThemeFromLS || "dark"
+  );
 
-  const onDialogClose = useCallback(() => {
-    setIsDialogOpen(false);
-  }, []);
-
-  const onSideDrawerClose = useCallback(() => {
-    setIsSideDrawerOpen(false);
-  }, []);
+  const handleColorThemeChange = useCallback(
+    (e: React.ChangeEvent<HTMLSelectElement>) => {
+      localStorage.setItem("color-theme", e.target.value.toString());
+      setColorTheme(e.target.value);
+    },
+    []
+  );
 
   return (
-    <div>
-      <button onClick={() => setIsDialogOpen(true)}>Open dialog</button>
-      <button onClick={() => setIsSideDrawerOpen(true)}>
-        Open Side drawer
-      </button>
-      <Dialog
-        isOpen={isDialogOpen}
-        onClose={onDialogClose}
-        shouldBackdropClickClose={false}
-      >
-        <section>
-          <header>
-            <button onClick={onDialogClose}>Close modal</button>
-          </header>
-          <div>Modal Content</div>
-        </section>
-      </Dialog>
-
-      <SideDrawer isOpen={isSideDrawerOpen} onClose={onSideDrawerClose}>
-        <section>
-          <header>
-            <button onClick={onSideDrawerClose}>Close Drawer</button>
-          </header>
-          <h1>Side Drawer title</h1>
-          <p>Side drawer content</p>
-        </section>
-      </SideDrawer>
-    </div>
+    <>
+      <div color-theme={colorTheme} className="main-container">
+        <header className={styles.header}>
+          <h1 className={styles.logoText}>lite-styled</h1>
+          <div>
+            <label htmlFor="color-theme-select">Color theme</label>
+            <select
+              id="color-theme-select"
+              onChange={handleColorThemeChange}
+              value={colorTheme}
+            >
+              <option value="light">light</option>
+              <option value="dark">dark</option>
+            </select>
+          </div>
+        </header>
+        <main className={styles.main}>
+          <nav className={styles.nav}>
+            {navGroups.map((navGroup) => {
+              const { groupName, navItems } = navGroup;
+              return <NavItemGroup groupName={groupName} navItems={navItems} />;
+            })}
+          </nav>
+          <div className={styles.contentContainer}>
+            <Routes>
+              <Route path="/" element={<ContentContainer />}>
+                <Route
+                  path="concept"
+                  element={<SectionContainer title="Concept" />}
+                >
+                  <Route path="about" element={<AboutContainer />} />
+                </Route>
+                <Route
+                  path="getting-started"
+                  element={<SectionContainer title="Getting started" />}
+                >
+                  <Route
+                    path="installation"
+                    element={<InstallationContainer />}
+                  />
+                  <Route path="usage" element={<UsageContainer />} />
+                </Route>
+                <Route
+                  path="components"
+                  element={<SectionContainer title="Components" />}
+                >
+                  <Route
+                    path="dialog"
+                    element={
+                      <ComponentContainer
+                        componentTitle={dialog.componentTitle}
+                        componentTag={dialog.componentTag}
+                        componentProps={dialog.componentProps}
+                        stackBlitzLinks={dialog.stackBlitzLinks}
+                      />
+                    }
+                  />
+                </Route>
+              </Route>
+            </Routes>
+          </div>
+        </main>
+        <footer className={styles.footer}>
+          <p>npm: lite-styled</p>
+        </footer>
+      </div>
+    </>
   );
 }
 

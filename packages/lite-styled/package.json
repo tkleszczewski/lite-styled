@@ -1,5 +1,17 @@
 {
   "name": "lite-styled",
+  "description": "A little styled customizable by CSS/SASS modules or global CSS React component library",
+  "keywords": [
+    "liteStyled",
+    "component-library",
+    "a11y",
+    "accessibility",
+    "React",
+    "component",
+    "library"
+  ],
+  "author": "tkle <tomekkleszczewski@gmail.com>",
+  "license": "MIT",
   "private": false,
   "version": "0.0.5",
   "scripts": {
@@ -9,9 +21,9 @@
     "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\""
   },
   "peerDependencies": {
+    "clsx": "^1.1.1",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "clsx": "^1.1.1"
+    "react-dom": "^18.0.0"
   },
   "files": [
     "dist"
@@ -24,5 +36,9 @@
       "import": "./dist/liteStyled.es.js",
       "require": "./dist/liteStyled.umd.js"
     }
+  },
+  "dependencies": {
+    "sass": "^1.51.0",
+    "vite-plugin-dts": "^1.1.1"
   }
 }

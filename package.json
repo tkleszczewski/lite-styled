@@ -1,5 +1,5 @@
 {
-  "name": "liteStyled",
+  "name": "lite-styled",
   "version": "0.0.1",
   "description": "A little styled customizable by CSS/SASS modules or global CSS React component library",
   "workspaces": {

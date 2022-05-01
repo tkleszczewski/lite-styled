@@ -1,0 +1,59 @@
+.componentTitle {
+  font-size: 1.8rem;
+  text-decoration: underline;
+  text-decoration-color: gray;
+}
+
+.componentTag {
+  margin-top: 16px;
+  display: inline-block;
+  font-size: 1.6rem;
+  padding: 8px 16px;
+  border: 1px solid var(--text-color);
+  border-radius: 8px;
+}
+
+.propsHeading {
+  font-size: 1.6rem;
+  font-weight: 500;
+  padding: 16px 0;
+}
+
+.propsList {
+  border: 1px solid var(--text-color);
+  border-radius: 16px;
+  padding: 16px;
+  list-style-type: none;
+}
+
+.propItem {
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 8px 0;
+}
+
+.stackBlitzLinkList {
+  border: 1px solid var(--text-color);
+  border-radius: 16px;
+  padding: 16px;
+  list-style-type: none;
+}
+
+.stackBlitzItem {
+  padding: 16px 0;
+}
+
+.stackBlitzItemDescription {
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.stackBlitzItemLink {
+  font-size: 1.6rem;
+
+  &:hover {
+    color: gray;
+  }
+}

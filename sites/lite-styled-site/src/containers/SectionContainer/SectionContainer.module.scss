@@ -1,0 +1,29 @@
+.section {
+  overflow-y: auto;
+  height: 100%;
+  padding-right: 8px;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: var(--text-color);
+    border-radius: 4px;
+  }
+}
+
+.header {
+  padding: 16px 0;
+}
+
+.title {
+  padding-bottom: 8px;
+  font-size: 2rem;
+}

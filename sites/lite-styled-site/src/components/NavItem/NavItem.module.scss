@@ -1,0 +1,15 @@
+.navItem {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--nav-link-inactive-color);
+  display: block;
+  width: 100%;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.navItemActive {
+  color: var(--nav-link-active-color);
+  background-color: var(--nav-link-active-background-color);
+}
