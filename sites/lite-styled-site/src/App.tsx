@@ -4,15 +4,14 @@ import { Route, Routes } from "react-router-dom";
 import NavItemGroup from "./components/NavItemGroup/NavItemGroup";
 
 import ContentContainer from "./containers/ContentContainer/ContentContainer";
-
 import SectionContainer from "./containers/SectionContainer/SectionContainer";
-
 import AboutContainer from "./containers/AboutContainer/AboutContainer";
-
-import styles from "./App.module.scss";
 import InstallationContainer from "./containers/InstallationContainer/InstallationContainer";
 import ComponentContainer from "./containers/ComponentContainer/ComponentContainer";
 import UsageContainer from "./containers/UsageContainer/UsageContainer";
+import IndexContainer from "./containers/IndexContainer/IndexContainer";
+
+import styles from "./App.module.scss";
 
 const conceptNavItemOptions = {
   groupName: "concept",
@@ -108,10 +107,10 @@ const dialog = {
   componentProps: [
     "isOpen: boolean",
     "onClose: () => void",
-    "onBackdropClick?: () => void",
-    "shouldBackdropClickClose?: boolean",
-    "backdropClassNames?: string",
-    "dialogClassNames?: string",
+    "onBackdropClick?: () => void = () => {}",
+    "shouldBackdropClickClose?: boolean = true",
+    `backdropClassNames?: string = ""`,
+    `dialogClassNames?: string = ""`,
     "children?: JSX.Element",
   ],
   stackBlitzLinks: [
@@ -132,11 +131,11 @@ const sideDrawer = {
   componentProps: [
     "isOpen: boolean",
     "onClose: () => void",
-    `sideDrawerPosition?: "left" | "right"`,
-    `shouldBackdropClickClose?: boolean`,
-    `onBackdropClick?: () => void`,
-    `backdropClassNames?: string`,
-    `sideDrawerClassNames?: string`,
+    `sideDrawerPosition?: "left" | "right" ="right"`,
+    `shouldBackdropClickClose?: boolean = true`,
+    `onBackdropClick?: () => void = () => {}`,
+    `backdropClassNames?: string = ""`,
+    `sideDrawerClassNames?: string = ""`,
     `children?: JSX.Element`,
   ],
   stackBlitzLinks: [
@@ -192,6 +191,7 @@ function App() {
           <div className={styles.contentContainer}>
             <Routes>
               <Route path="/" element={<ContentContainer />}>
+                <Route index element={<IndexContainer />} />
                 <Route
                   path="concept"
                   element={<SectionContainer title="Concept" />}

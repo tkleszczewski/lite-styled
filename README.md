@@ -1,3 +1,3 @@
-# Installation
+#Docs
 
-to install run "npm install lite-styled"
+for documentation head to [www.lite-styled.com](https://www.lite-styled.com)
