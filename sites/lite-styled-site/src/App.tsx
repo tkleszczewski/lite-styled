@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 
 import NavItemGroup from "./components/NavItemGroup/NavItemGroup";
 
@@ -168,7 +168,11 @@ function App() {
     <>
       <div color-theme={colorTheme} className="main-container">
         <header className={styles.header}>
-          <h1 className={styles.logoText}>lite-styled</h1>
+          <h1 className={styles.logoText}>
+            <Link className={styles.logoText} to="/">
+              lite-styled
+            </Link>
+          </h1>
           <div>
             <label htmlFor="color-theme-select">Color theme</label>
             <select
